@@ -1,38 +1,83 @@
+/* General */
+
 html {
   color: #fff;
 }
 
+/* Header */
+
 header {
+  display: flex;
+  justify-content: center;
   width: 100%;
+  border-bottom: 1px solid #000;
 }
 
 header img {
   width: 50px;
 }
 
-
-
-
-main {
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
+header .menu {
+  display: none;
 }
+
+@media (min-width: 768px) {
+  header {
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 1400px) {
+  header .menu {
+    display: block;
+    background: #333;
+    /* Below simple trick of how to align single element in flexbox in a different way than the others */
+    margin-left: auto;
+  }
+}
+
+/* Main */
 
 main .card-container {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
 }
 
 main .card-container .card {
-  width: 100%;
+  /* width: 50%; */
+  /* Below option with px */
+  width: 300px;
   height: 100px;
   background: #999;
-  border: 1px solid green;
+  margin: 20px 0;
 }
 
+main .card-container .badge {
+  display: none;
+}
 
+@media (min-width: 768px) {
+  main .card-container {
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 
+  main .card-container .badge {
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: blue;
+    position: absolute;
+    right: 30px;
+    bottom: -30px;
+  }
+}
+
+/* Footer */
 
 footer {
   background: #666;
@@ -40,6 +85,5 @@ footer {
   right: 0;
   bottom: 0;
   left: 0;
+  border-top: 1px solid #000;
 }
-
-
